@@ -64,7 +64,7 @@ def main():
     ''' Program kicks off here.
 
     '''
-       make_tree()
+    make_tree()
     
 if __name__ == "__main__":
     main()
