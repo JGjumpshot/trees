@@ -11,7 +11,7 @@ Lessons Learned:
 '''
 from pathlib import Path
 from string import whitespace, punctuation
-from bst import BST
+from binarysearchtree import *
 
 
 class Pair:
