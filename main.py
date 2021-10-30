@@ -68,8 +68,14 @@ def main():
     my_file = open("around-the-world-in-80-days-3.txt")
     for i in my_file.readlines():
         line = i
-        split_line = list(line)
+        split_line = list(line.strip())
+        for j in split_line:
+            print(j)
+            # if j in punctuation or j in whitespace:
+            #     # print('punctuation/whitespace found!')
+            #     j.replace(j, "")
         # print(split_line)
+            # print(j)
         # if char in punctuation or char in whitespace:
         #     char = '@'
         # print(char)
