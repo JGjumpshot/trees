@@ -42,7 +42,7 @@ class BinarySearchTree:
     def size(self):
         if self is None:
             return 0
-    # def is_empty(self):
-    #     if self is None:
-    #         self = 0
-    #         return self
+    
+node = Node(10)
+myTree = (node)
+print(myTree.data)
