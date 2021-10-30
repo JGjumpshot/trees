@@ -34,7 +34,7 @@ enter.
 '''
 import pytest
 from random import seed, sample
-from binarysearchtree import BinarySearchTree as BST
+from bst import BinarySearchTree as BST
 from main import Pair, make_tree
 
 def test_create_BST():

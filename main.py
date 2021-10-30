@@ -11,7 +11,7 @@ Lessons Learned:
 '''
 from pathlib import Path
 from string import whitespace, punctuation
-from binarysearchtree import *
+from bst import *
 
 
 class Pair:
@@ -68,26 +68,17 @@ def main():
 
     '''
     my_file = open("around-the-world-in-80-days-3.txt")
-    for i in my_file.readlines():
-        line = i.strip()
-        split_line = list(line)
-        for j in split_line:
-            # print(j)
-            
-            translationTablePunc = j.maketrans("", "", punctuation)
-            translationTableWhite = j.maketrans("", "", whitespace)
-            newString = j.translate(translationTablePunc)
-            newString = newString.translate(translationTableWhite)
-            # print(newString)
-        print(split_line)
-# if j in punctuation or j in whitespace:
-#     print('punctuation/whitespace found!')
-# j.replace(j, "")
-# print(split_line)
-# print(j)
-# if char in punctuation or char in whitespace:
-#     char = '@'
-# print(char)
+    print(type(punctuation))
+    x = my_file.read()
+
+    for i in punctuation:
+        x = x.replace(i, "")
+    for i in whitespace:
+        x = x.replace(i, "")
+
+    for i in x:
+        print(i)
+    # x = x.replace(" ", "")
 # make_tree()
 
 if __name__ == "__main__":
