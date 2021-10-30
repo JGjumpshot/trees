@@ -16,17 +16,18 @@ from binarysearchtree import *
 
 class Pair:
     ''' Encapsulate letter,count pair as a single entity.
-    
+
     Realtional methods make this object comparable
     using built-in operators. 
     '''
-    def __init__(self, letter, count = 1):
+
+    def __init__(self, letter, count=1):
         self.letter = letter
         self.count = count
-    
+
     def __eq__(self, other):
         return self.letter == other.letter
-    
+
     def __hash__(self):
         return hash(self.letter)
 
@@ -47,39 +48,47 @@ class Pair:
 
     def __repr__(self):
         return f'({self.letter}, {self.count})'
-    
+
     def __str__(self):
         return f'({self.letter}, {self.count})'
 
+
 def make_tree():
     ''' A helper function to build the tree.
-    
+
     The test code depends on this function being available from main.
     :param: None
     :returns: A binary search tree
     '''
     pass
 
+
 def main():
-    
     ''' Program kicks off here.
 
     '''
     my_file = open("around-the-world-in-80-days-3.txt")
     for i in my_file.readlines():
-        line = i
-        split_line = list(line.strip())
+        line = i.strip()
+        split_line = list(line)
         for j in split_line:
-            print(j)
-            # if j in punctuation or j in whitespace:
-            #     # print('punctuation/whitespace found!')
-            #     j.replace(j, "")
-        # print(split_line)
             # print(j)
-        # if char in punctuation or char in whitespace:
-        #     char = '@'
-        # print(char)
-    # make_tree()
-    
+            
+            translationTablePunc = j.maketrans("", "", punctuation)
+            translationTableWhite = j.maketrans("", "", whitespace)
+            newString = j.translate(translationTablePunc)
+            newString = newString.translate(translationTableWhite)
+            # print(newString)
+        print(split_line)
+# if j in punctuation or j in whitespace:
+#     print('punctuation/whitespace found!')
+# j.replace(j, "")
+# print(split_line)
+# print(j)
+# if char in punctuation or char in whitespace:
+#     char = '@'
+# print(char)
+# make_tree()
+
 if __name__ == "__main__":
     main()
