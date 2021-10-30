@@ -78,8 +78,9 @@ def main():
 
     for i in x:
         print(i)
+        # print(make_tree())
+    # print(x)
     # x = x.replace(" ", "")
-# make_tree()
 
 if __name__ == "__main__":
     main()

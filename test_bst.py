@@ -42,9 +42,9 @@ def test_create_BST():
     assert bst.size() == 0
     assert bst.is_empty()
 
-# def test_tree_size():
-#     bst = make_tree()
-#     assert bst.size() == 57
+def test_tree_size():
+    bst = make_tree()
+    assert bst.size() == 57
 
 # def test_tree_height():
 #     bst = make_tree()
@@ -93,9 +93,9 @@ def test_create_BST():
 #     tree_data = bst.rebalance()
 #     assert not original_height == bst.height()
 
-def test_code_style():
-    from pylint.lint import Run
-    results = Run(['bst.py'], exit=False)
-    expected = 8.5
-    actual = results.linter.stats['global_note']
-    assert actual >= expected
+# def test_code_style():
+#     from pylint.lint import Run
+#     results = Run(['bst.py'], exit=False)
+#     expected = 8.5
+#     actual = results.linter.stats['global_note']
+#     assert actual >= expected

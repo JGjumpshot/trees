@@ -8,7 +8,7 @@ class Node:
 class BinarySearchTree:
     """init function"""
     def __init__(self, root_obj = None):
-        self.key = root_obj
+        self.root = root_obj
         self.left_child = None
         self.right_child = None
     """insert left function"""
@@ -29,10 +29,10 @@ class BinarySearchTree:
             self.right_child = new_child
     """Get root value function"""
     def get_root_val(self):
-        return self.key
+        return self.root
     """Set root value function"""
     def set_root_val(self, new_obj):
-        self.key = new_obj
+        self.root = new_obj
     """Get Left child function"""
     def get_left_child(self):
         return self.left_child
@@ -40,9 +40,18 @@ class BinarySearchTree:
     def get_right_child(self):
         return self.right_child
     def size(self):
-        if self is None:
+        if self.root:
+            return self.root.size()
+        else:
             return 0
+    def is_empty(self):
+        if self.root is None:
+            return True
+        else:
+            return False
     
 node = Node(10)
-myTree = (node)
-print(myTree.data)
+# node.left = Node(5)
+# node.right = Node(12)
+myTree = BinarySearchTree(node)
+print(myTree.is_empty())
