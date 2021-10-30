@@ -61,10 +61,19 @@ def make_tree():
     pass
 
 def main():
+    
     ''' Program kicks off here.
 
     '''
-    make_tree()
+    my_file = open("around-the-world-in-80-days-3.txt")
+    for i in my_file.readlines():
+        line = i
+        split_line = list(line)
+        # print(split_line)
+        # if char in punctuation or char in whitespace:
+        #     char = '@'
+        # print(char)
+    # make_tree()
     
 if __name__ == "__main__":
     main()
