@@ -1,7 +1,7 @@
 """Binary search tree"""
 class BinarySearchTree:
     """init function"""
-    def __init__(self, root_obj):
+    def __init__(self, root_obj = None):
         self.key = root_obj
         self.left_child = None
         self.right_child = None
@@ -33,3 +33,10 @@ class BinarySearchTree:
     """Get Right child function"""
     def get_right_child(self):
         return self.right_child
+    def size(self):
+        if self is None:
+            return 0
+    # def is_empty(self):
+    #     if self is None:
+    #         self = 0
+    #         return self
