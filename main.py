@@ -77,7 +77,7 @@ def main():
         x = x.replace(i, "")
 
     for i in x:
-        print(Node(i))
+        print(Node(ord(i)))
         # print(make_tree())
     # print(x)
     # x = x.replace(" ", "")
