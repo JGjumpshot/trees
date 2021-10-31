@@ -4,6 +4,8 @@ class Node:
         self.data = data
         self.left = None
         self.right = None
+    def __str__(self):
+        return str(self.data)
 """Binary search tree"""
 class BinarySearchTree:
     """init function"""
@@ -53,5 +55,6 @@ class BinarySearchTree:
 node = Node(10)
 # node.left = Node(5)
 # node.right = Node(12)
-myTree = BinarySearchTree(node)
-print(myTree.is_empty())
+print(node)
+# myTree = BinarySearchTree(node)
+# print(myTree.is_empty())
