@@ -67,17 +67,28 @@ def main():
     ''' Program kicks off here.
 
     '''
-    my_file = open("around-the-world-in-80-days-3.txt")
-    print(type(punctuation))
-    x = my_file.read()
+    # my_file = open("around-the-world-in-80-days-3.txt")
+    
+    # x = my_file.read()
 
-    for i in punctuation:
-        x = x.replace(i, "")
-    for i in whitespace:
-        x = x.replace(i, "")
+    # for i in punctuation:
+    #     x = x.replace(i, "")
+    # for i in whitespace:
+    #     x = x.replace(i, "")
 
-    for i in x:
-        print(Node(ord(i)))
+    # for i in x:
+    #     print(Node(ord(i)))
+    myNode1 = Node(10)
+    myNode2 = Node(2)
+    myNode3 = Node(15)
+    myNode4 = Node(5)
+
+    myTree = BinarySearchTree()
+    myTree.add_node(myNode1)
+    myTree.add_node(myNode2)
+    myTree.add_node(myNode3)
+    myTree.add_node(myNode4)
+    print(myTree)
         # print(make_tree())
     # print(x)
     # x = x.replace(" ", "")
