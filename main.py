@@ -83,8 +83,7 @@ def main():
     myNode3 = Node(15)
     myNode4 = Node(5)
 
-    myTree = BinarySearchTree()
-    myTree.add_node(myNode1)
+    myTree = BinarySearchTree(myNode1)
     myTree.add_node(myNode2)
     myTree.add_node(myNode3)
     myTree.add_node(myNode4)
