@@ -15,7 +15,7 @@ class BinarySearchTree:
         self.right_child = None
     def add_node(self, node_data):
         def node_placement(pointer, node_data):
-            if node_data is None:
+            if node_data is None or pointer is None:
                 return Node(node_data)
             elif node_data.data > pointer.data:
                 pointer.right = node_placement(pointer.right, node_data)
