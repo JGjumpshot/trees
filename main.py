@@ -24,7 +24,8 @@ class Pair:
     def __init__(self, letter, count=1):
         self.letter = letter
         self.count = count
-
+        self.right = None
+        self.left = None
     def __eq__(self, other):
         return self.letter == other.letter
 
@@ -54,13 +55,11 @@ class Pair:
 
 
 def make_tree():
-    ''' A helper function to build the tree.
-
-    The test code depends on this function being available from main.
+    """A helper function to build the tree.The test code depends on this function being available from main.
     :param: None
-    :returns: A binary search tree
-    '''
-    pass
+    :returns: A binary search tree"""
+    my_tree = BinarySearchTree()
+    return my_tree
 
 
 def main():
@@ -78,16 +77,13 @@ def main():
 
     # for i in x:
     #     print(Node(ord(i)))
-    myNode1 = Node(10)
-    myNode2 = Node(2)
-    myNode3 = Node(15)
-    myNode4 = Node(5)
-
-    myTree = BinarySearchTree(myNode1)
-    myTree.add_node(myNode2)
-    myTree.add_node(myNode3)
-    myTree.add_node(myNode4)
-    print(myTree)
+    
+    # myTree.add_node(myNode3)
+    # myTree.add_node(myNode4)
+    # print(make_tree().size)
+    my_node = Pair('a', 20)
+    my_tree = BinarySearchTree(my_node)
+    print(my_tree.find(my_node, 'a'))
         # print(make_tree())
     # print(x)
     # x = x.replace(" ", "")
