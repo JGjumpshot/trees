@@ -55,11 +55,11 @@ class BinarySearchTree:
     """Get Right child function"""
     def get_right_child(self):
         return self.right_child
-    def size(self):
-        if self.root:
-            return self.root.size()
+    def size(self, node):
+        if node is None:
+            return 0 
         else:
-            return 0
+            return (self.size(node.left)+ 1 + self.size(node.right))
     def is_empty(self):
         if self.root is None:
             return True
