@@ -1,11 +1,5 @@
-"""Node class"""
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
-    def __str__(self):
-        return str(self.data)
+from main import Pair
+
 """Binary search tree"""
 class BinarySearchTree:
     """init function"""
@@ -13,16 +7,19 @@ class BinarySearchTree:
         self.root = root_obj
         self.left_child = None
         self.right_child = None
-    def add_node(self, node_data):
-        def node_placement(pointer, node_data):
-            if node_data is None or pointer is None:
-                return Node(node_data)
-            elif node_data.data > pointer.data:
-                pointer.right = node_placement(pointer.right, node_data)
+    def add(self, letter):
+        if letter is None:
+            Pair(letter).count += 1
+            return Pair(letter)
+        else:
+            if self.root.letter == letter:
+                return self.root
+            elif self.root < letter:
+                self.root.right = self.add(self.root.right, letter)
             else:
-                pointer.left = node_placement(pointer.left, node_data)
-            return pointer      
-        self.root = node_placement(self.root, node_data)
+                self.root.left = self.add(self.root.left, letter)
+
+        return self.root
     # """insert left function"""
     # def insert_left(self, new_node):
     #     if self.left_child is None:
@@ -39,6 +36,13 @@ class BinarySearchTree:
     #         new_child = BinarySearchTree(new_node)
     #         new_child.right_child = self.right_child
     #         self.right_child = new_child
+    # """Find function"""
+    def find(self, current_node, letter):
+        if current_node is None or self.root.letter == letter:
+            return current_node
+        if self.root.letter < letter:
+            return self.find(self.root.right, letter)
+        return self.find(self.root.left, letter)
     """Get root value function"""
     def get_root_val(self):
         return self.root
@@ -51,11 +55,11 @@ class BinarySearchTree:
     """Get Right child function"""
     def get_right_child(self):
         return self.right_child
-    def size(self):
-        if self.root:
-            return self.root.size()
+    def size(self, node):
+        if node is None:
+            return 0 
         else:
-            return 0
+            return (self.size(node.left)+ 1 + self.size(node.right))
     def is_empty(self):
         if self.root is None:
             return True
