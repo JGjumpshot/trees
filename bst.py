@@ -1,84 +1,83 @@
-from main import Pair
-
 """Binary search tree"""
+from main import Pair
 class BinarySearchTree:
     """init function"""
     def __init__(self, root_obj = None):
         self.root = root_obj
         # self.left_child = None
         # self.right_child = None
-    """Add function"""
-    def add(self, letter):
+    def add(self, node, letter):
+        """Add function"""
         if letter is None:
             Pair(letter).count += 1
             return Pair(letter)
         else:
-            if self.root.letter == letter:
-                return self.root
-            elif self.root < letter:
-                self.root.right = self.add(self.root.right, letter)
+            if node.letter == letter:
+                return node
+            elif node < letter:
+                node.right = self.add(node.right, letter)
             else:
-                self.root.left = self.add(self.root.left, letter)
+                node.left = self.add(node.left, letter)
 
-        return self.root
-    """Height function"""
+        return node
     def height(self, node):
+        """Height function"""
         if node is None:
             return -1
         else:
             left_depth = self.height(node.left_child)
             right_depth = self.height(node.right_child)
 
-            if (left_depth > right_depth):
+            if left_depth > right_depth:
                 return left_depth + 1
             else:
                 return right_depth + 1
-    """Size function"""
     def size(self, node):
+        """Size function"""
         if node is None:
-            return 0 
+            return 0
         else:
             return (self.size(node.left_child)+ 1 + self.size(node.right_child))
 
-    """Find function"""
     def find(self, node, letter):
+        """Find function"""
         if node is None or node.letter == letter:
             return node
         if node.letter < letter:
             return self.find(node.right_child, letter)
         return self.find(node.left_child, letter)
-    """Get root value function"""
     def get_root_val(self):
+        """Get root value function"""
         return self.root
-    """Set root value function"""
     def set_root_val(self, new_obj):
+        """Set root value function"""
         self.root = new_obj
-    """Get Left child function"""
-    def get_left_child(self):
-        return self.left_child
-    """Get Right child function"""
-    def get_right_child(self):
-        return self.right_child
-    """Is Empty function"""
+    # def get_left_child(self, node):
+    #     """Get Left child function"""
+    #     return node.left_child
+    # def get_right_child(self, node):
+    #     """Get Right child function"""
+    #     return node.right_child
     def is_empty(self):
+        """Is Empty function"""
         if self.root is None:
             return True
         else:
             return False
-    """In Order function"""
     def in_order(self, node):
+        """In Order function"""
         if node.letter:
             self.in_order(node.left_child)
             print(node)
             self.in_order(node.right_child)
-    """Preorder function"""
     def pre_order(self, node):
+        """Preorder function"""
         if node.letter:
             print(node)
             self.pre_order(node.left_child)
             self.pre_order(node.right_child)
-    """Postorder function"""
     def post_order(self, node):
+        """Postorder function"""
         if node.letter:
             print(node)
             self.post_order(node.left_child)
