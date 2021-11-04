@@ -20,6 +20,18 @@ class BinarySearchTree:
                 self.root.left = self.add(self.root.left, letter)
 
         return self.root
+
+    def height(self, node):
+        if node is None:
+            return -1
+        else:
+            left_depth = self.height(node.left_child)
+            right_depth = self.height(node.right_child)
+
+            if (left_depth > right_depth):
+                return left_depth + 1
+            else:
+                return right_depth + 1
     # """insert left function"""
     # def insert_left(self, new_node):
     #     if self.left_child is None:
@@ -36,13 +48,13 @@ class BinarySearchTree:
     #         new_child = BinarySearchTree(new_node)
     #         new_child.right_child = self.right_child
     #         self.right_child = new_child
-    # """Find function"""
-    def find(self, current_node, letter):
-        if current_node is None or self.root.letter == letter:
-            return current_node
-        if self.root.letter < letter:
-            return self.find(self.root.right, letter)
-        return self.find(self.root.left, letter)
+    # """Find function""" # needs work
+    # def find(self, current_node, letter):
+    #     if current_node is None or self.root.letter == letter:
+    #         return current_node
+    #     if self.root.letter < letter:
+    #         return self.find(self.root.right, letter)
+    #     return self.find(self.root.left, letter)
     """Get root value function"""
     def get_root_val(self):
         return self.root

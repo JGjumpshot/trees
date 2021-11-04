@@ -24,8 +24,8 @@ class Pair:
     def __init__(self, letter, count=1):
         self.letter = letter
         self.count = count
-        self.right = None
-        self.left = None
+        self.right_child = None
+        self.left_child = None
     def __eq__(self, other):
         return self.letter == other.letter
 
@@ -82,12 +82,14 @@ def main():
     # myTree.add_node(myNode4)
     # print(make_tree().size)
     my_node = Pair('b', 20)
-    my_node.left = Pair('a', 10)
-    my_node.right = Pair('c', 22)
-    my_node.right.left = Pair('d', 21)
+    my_node.left_child = Pair('a', 10)
+    my_node.left_child.left_child = Pair('z', 12)
+    my_node.right_child = Pair('z', 20)
+    my_node.right_child.right_child = Pair('e', 20)
+    my_node.right_child.right_child.right_child = Pair('f', 12)
     my_tree = BinarySearchTree(my_node)
     # print(my_tree.find(my_node, 'a'))
-    print(my_tree.size(my_node))
+    print(my_tree.height(my_node))
         # print(make_tree())
     # print(x)
     # x = x.replace(" ", "")
