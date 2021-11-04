@@ -1,24 +1,14 @@
-'''
-Project:
-Author: 
-Course: 
-Date: 
-
-Description:
-
-Lessons Learned:
-
-'''
-from pathlib import Path
+# from pathlib import Path
+"""Module docstring"""
 from string import whitespace, punctuation
-from bst import *
+from bst import BinarySearchTree
 
 
 class Pair:
     ''' Encapsulate letter,count pair as a single entity.
 
     Realtional methods make this object comparable
-    using built-in operators. 
+    using built-in operators.
     '''
 
     def __init__(self, letter, count=1):
@@ -55,7 +45,8 @@ class Pair:
 
 
 def make_tree():
-    """A helper function to build the tree.The test code depends on this function being available from main.
+    """A helper function to build the tree.The test code depends on this
+    function being available from main.
     :param: None
     :returns: A binary search tree"""
     my_tree = BinarySearchTree()
@@ -63,21 +54,14 @@ def make_tree():
 
 
 def main():
-    ''' Program kicks off here.
-
-    '''
     # my_file = open("around-the-world-in-80-days-3.txt")
-    
     # x = my_file.read()
-
     # for i in punctuation:
     #     x = x.replace(i, "")
     # for i in whitespace:
     #     x = x.replace(i, "")
-
     # for i in x:
     #     print(Node(ord(i)))
-    
     # myTree.add_node(myNode3)
     # myTree.add_node(myNode4)
     # print(make_tree().size)
@@ -91,8 +75,7 @@ def main():
     # print(my_tree.find(my_node, 'z'))
     # print(my_tree.height(my_node))
     # print(my_tree.size(my_node))
-    print(my_tree.in_order(my_node))
-    
+    # print(my_tree.in_order(my_node)) ****
         # print(make_tree())
     # print(x)
     # x = x.replace(" ", "")
