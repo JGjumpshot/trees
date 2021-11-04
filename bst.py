@@ -5,8 +5,8 @@ class BinarySearchTree:
     """init function"""
     def __init__(self, root_obj = None):
         self.root = root_obj
-        self.left_child = None
-        self.right_child = None
+        # self.left_child = None
+        # self.right_child = None
     """Add function"""
     def add(self, letter):
         if letter is None:
@@ -59,24 +59,41 @@ class BinarySearchTree:
     """Get Right child function"""
     def get_right_child(self):
         return self.right_child
+    """Is Empty function"""
     def is_empty(self):
         if self.root is None:
             return True
         else:
             return False
-    def in_order(self):
-
-        def node_placement(pointer, node_list):
-            if pointer is None:
-                return
-            if pointer.left:
-                node_placement(pointer.left, node_list)
-            node_list.append(pointer.data)
-            if pointer.right:
-                node_placement(pointer.right, node_list)
-        node_list = []
-        node_placement(self.root, node_list)
-        return node_list
+    """In Order function"""
+    def in_order(self, node):
+        if node.letter:
+            self.in_order(node.left_child)
+            print(node)
+            self.in_order(node.right_child)
+    """Preorder function"""
+    def pre_order(self, node):
+        if node.letter:
+            print(node)
+            self.pre_order(node.left_child)
+            self.pre_order(node.right_child)
+    """Postorder function"""
+    def post_order(self, node):
+        if node.letter:
+            print(node)
+            self.post_order(node.left_child)
+            self.post_order(node.right_child)
+        # def node_placement(pointer, node_list):
+        #     if pointer is None:
+        #         return
+        #     if pointer.left:
+        #         node_placement(pointer.left, node_list)
+        #     node_list.append(pointer.data)
+        #     if pointer.right:
+        #         node_placement(pointer.right, node_list)
+        # node_list = []
+        # node_placement(self.root, node_list)
+        # return node_list
 # myNode1 = Node(10)
 # myNode2 = Node(2)
 # myNode3 = Node(15)
