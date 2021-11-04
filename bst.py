@@ -38,7 +38,7 @@ class BinarySearchTree:
         if node is None:
             return 0 
         else:
-            return (self.size(node.left)+ 1 + self.size(node.right))
+            return (self.size(node.left_child)+ 1 + self.size(node.right_child))
 
     """Find function"""
     def find(self, current_node, letter):

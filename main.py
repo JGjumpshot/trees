@@ -89,7 +89,7 @@ def main():
     my_node.right_child.right_child.right_child = Pair('f', 12)
     my_tree = BinarySearchTree(my_node)
     # print(my_tree.find(my_node, 'a'))
-    print(my_tree.height(my_node))
+    # print(my_tree.height(my_node))
     print(my_tree.size(my_node))
         # print(make_tree())
     # print(x)
