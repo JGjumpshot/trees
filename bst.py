@@ -41,12 +41,12 @@ class BinarySearchTree:
             return (self.size(node.left_child)+ 1 + self.size(node.right_child))
 
     """Find function"""
-    def find(self, current_node, letter):
-        if current_node is None or self.root.letter == letter:
-            return current_node
-        if self.root.letter < letter:
-            return self.find(self.root.right, letter)
-        return self.find(self.root.left, letter)
+    def find(self, node, letter):
+        if node is None or node.letter == letter:
+            return node
+        if node.letter < letter:
+            return self.find(node.right_child, letter)
+        return self.find(node.left_child, letter)
     """Get root value function"""
     def get_root_val(self):
         return self.root
