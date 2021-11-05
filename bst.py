@@ -1,23 +1,23 @@
 """Binary search tree"""
-from main import Pair
+# from main import Pair
 class BinarySearchTree:
     """init function"""
     def __init__(self, root_obj = None):
         self.root = root_obj
         # self.left_child = None
         # self.right_child = None
-    def add(self, node, letter):
+    def add(self, node):
         """Add function"""
-        if letter is None:
-            Pair(letter).count += 1
-            return Pair(letter)
+        if self.root is None:
+            node.letter.count += 1
+            return node.letter
         else:
-            if node.letter == letter:
+            if self.root == node:
                 return node
-            elif node < letter:
-                node.right = self.add(node.right, letter)
+            elif node < self.root:
+                self.root.right_child = self.add(self.root.right_child)
             else:
-                node.left = self.add(node.left, letter)
+                self.root.left_child = self.add(node.left_child)
 
         return node
     def height(self, node):

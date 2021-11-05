@@ -1,7 +1,7 @@
 # from pathlib import Path
 """Module docstring"""
 from string import whitespace, punctuation
-from bst import BinarySearchTree
+from bst import *
 
 
 class Pair:
@@ -50,10 +50,20 @@ def make_tree():
     :param: None
     :returns: A binary search tree"""
     my_tree = BinarySearchTree()
+    my_file = open("around-the-world-in-80-days-3.txt")
+    x = my_file.read()
+    for i in punctuation:
+        x = x.replace(i, "")
+    for i in whitespace:
+        x = x.replace(i, "")
+    for i in x:
+        print(my_tree.add(i))
+        # print(Pair(ord(i)))
     return my_tree
 
 
 def main():
+    # make_tree()
     # my_file = open("around-the-world-in-80-days-3.txt")
     # x = my_file.read()
     # for i in punctuation:
@@ -61,20 +71,23 @@ def main():
     # for i in whitespace:
     #     x = x.replace(i, "")
     # for i in x:
-    #     print(Node(ord(i)))
+    #     print(Pair(ord(i)))
     # myTree.add_node(myNode3)
     # myTree.add_node(myNode4)
     # print(make_tree().size)
     my_node = Pair('b', 20)
-    my_node.left_child = Pair('a', 10)
-    my_node.left_child.left_child = Pair('z', 12)
-    my_node.right_child = Pair('z', 20)
+    # my_node.left_child = Pair('a', 10)
+    # my_node.left_child.left_child = Pair('z', 12)
+    # my_node.right_child = Pair('z', 20)
     # my_node.right_child.right_child = Pair('e', 20)
     # my_node.right_child.right_child.right_child = Pair('f', 12)
     my_tree = BinarySearchTree(my_node)
+    my_tree.add(Pair("a", 20))
+    print(my_tree)
     # print(my_tree.find(my_node, 'z'))
     # print(my_tree.height(my_node))
     # print(my_tree.size(my_node))
+    
     # print(my_tree.in_order(my_node)) ****
         # print(make_tree())
     # print(x)
