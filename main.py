@@ -57,7 +57,8 @@ def make_tree():
     for i in whitespace:
         x = x.replace(i, "")
     for i in x:
-        print(my_tree.add(i))
+        node = Pair(i)
+        my_tree.add(node)
         # print(Pair(ord(i)))
     return my_tree
 
@@ -81,9 +82,9 @@ def main():
     # my_node.right_child = Pair('z', 20)
     # my_node.right_child.right_child = Pair('e', 20)
     # my_node.right_child.right_child.right_child = Pair('f', 12)
-    my_tree = BinarySearchTree(my_node)
-    my_tree.add(Pair("a", 20))
-    print(my_tree)
+    # my_tree = BinarySearchTree(my_node)
+    # my_tree.add(Pair("a", 20))
+    print(make_tree())
     # print(my_tree.find(my_node, 'z'))
     # print(my_tree.height(my_node))
     # print(my_tree.size(my_node))

@@ -6,20 +6,21 @@ class BinarySearchTree:
         self.root = root_obj
         # self.left_child = None
         # self.right_child = None
-    def add(self, node):
+    def add(self, node, current_node = None):
         """Add function"""
-        if self.root is None:
-            node.letter.count += 1
-            return node.letter
+        if current_node is None:
+            self.root = node
+            return self
         else:
-            if self.root == node:
-                return node
-            elif node < self.root:
-                self.root.right_child = self.add(self.root.right_child)
+            if current_node.letter == node.letter:
+                current_node.count += 1
+                return current_node
+            elif current_node.letter < node.letter:
+                self.current_node.right_child = self.add(node.right_child, node)
             else:
-                self.root.left_child = self.add(node.left_child)
+                self.current_node.left_child = self.add(node.left_child, node)
 
-        return node
+        return current_node
     def height(self, node):
         """Height function"""
         if node is None:
