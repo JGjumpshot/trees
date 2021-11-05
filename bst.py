@@ -6,19 +6,20 @@ class BinarySearchTree:
         self.root = root_obj
         # self.left_child = None
         # self.right_child = None
-    def add(self, node, current_node = None):
+    def add(self, node):
+        self.root = self.add_helper(node, self.root)
+    def add_helper(self, node, current_node):
         """Add function"""
         if current_node is None:
-            self.root = node
-            return self
+            return node
         else:
             if current_node.letter == node.letter:
                 current_node.count += 1
                 return current_node
             elif current_node.letter < node.letter:
-                self.current_node.right_child = self.add(node.right_child, node)
+                current_node.right_child = self.add_helper(node, node.right_child)
             else:
-                self.current_node.left_child = self.add(node.left_child, node)
+                current_node.left_child = self.add_helper(node, node.left_child)
 
         return current_node
     def height(self, node):
@@ -65,18 +66,20 @@ class BinarySearchTree:
             return True
         else:
             return False
-    def in_order(self, node):
+    def in_order(self):
+        self.in_order_helper(self.root)
+    def in_order_helper(self, node):
         """In Order function"""
-        if node.letter:
+        if node:
             self.in_order(node.left_child)
             print(node)
             self.in_order(node.right_child)
-    def pre_order(self, node):
+    def pre_order(self):
         """Preorder function"""
-        if node.letter:
-            print(node)
-            self.pre_order(node.left_child)
-            self.pre_order(node.right_child)
+        if self.root:
+            print(self.root)
+            self.pre_order(self.root.left_child)
+            self.pre_order(self.root.right_child)
     def post_order(self, node):
         """Postorder function"""
         if node.letter:

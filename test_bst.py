@@ -93,9 +93,9 @@ def test_create_BST():
 #     tree_data = bst.rebalance()
 #     assert not original_height == bst.height()
 
-def test_code_style():
-    from pylint.lint import Run
-    results = Run(['bst.py'], exit=False)
-    expected = 8.5
-    actual = results.linter.stats['global_note']
-    assert actual >= expected
+# def test_code_style():
+#     from pylint.lint import Run
+#     results = Run(['bst.py'], exit=False)
+#     expected = 8.5
+#     actual = results.linter.stats['global_note']
+#     assert actual >= expected
