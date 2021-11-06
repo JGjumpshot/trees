@@ -44,16 +44,16 @@ def test_create_BST():
 
 def test_tree_size():
     bst = make_tree()
-    assert bst.size(bst.root) == 57
+    assert bst.size() == 57
 
-# def test_tree_height():
-#     bst = make_tree()
-#     assert bst.height() == 11
+def test_tree_height():
+    bst = make_tree()
+    assert bst.height() == 11
 
-# def test_find_empty():
-#     with pytest.raises(ValueError):
-#         bst = BST()
-#         item = bst.find(Pair('A'))
+def test_find_empty():
+    with pytest.raises(ValueError):
+        bst = BST()
+        item = bst.find(Pair('A'))
 
 # def test_remove_root():
 #     bst = make_tree()
@@ -69,23 +69,23 @@ def test_tree_size():
 #     pre = bst.preorder()
 #     assert pre[i] == Pair('f')
 
-# def test_remove_leaf():
-#     bst = make_tree()
-#     bst.remove(Pair('z'))
-#     pre = bst.preorder()
-#     assert pre[-1] == Pair('w')
+def test_remove_leaf():
+    bst = make_tree()
+    bst.remove(Pair('z'))
+    pre = bst.preorder()
+    assert pre[-1] == Pair('w')
 
-# def test_preorder():
-#     bst = make_tree()
-#     assert bst.preorder()[27] == Pair('R',20)
+def test_preorder():
+    bst = make_tree()
+    assert bst.preorder()[27] == Pair('R',20)
 
-# def test_inorder():
-#     bst = make_tree()
-#     assert bst.inorder()[27] == Pair('T',34)
+def test_inorder():
+    bst = make_tree()
+    assert bst.inorder()[27] == Pair('T',34)
 
-# def test_postorder():
-#     bst = make_tree()
-#     assert bst.postorder()[27] == Pair('W',13)
+def test_postorder():
+    bst = make_tree()
+    assert bst.postorder()[27] == Pair('W',13)
 
 # def test_rebalance():
 #     bst = make_tree()
@@ -93,9 +93,9 @@ def test_tree_size():
 #     tree_data = bst.rebalance()
 #     assert not original_height == bst.height()
 
-# def test_code_style():
-#     from pylint.lint import Run
-#     results = Run(['bst.py'], exit=False)
-#     expected = 8.5
-#     actual = results.linter.stats['global_note']
-#     assert actual >= expected
+def test_code_style():
+    from pylint.lint import Run
+    results = Run(['bst.py'], exit=False)
+    expected = 8.5
+    actual = results.linter.stats['global_note']
+    assert actual >= expected

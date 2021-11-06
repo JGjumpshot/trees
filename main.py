@@ -14,6 +14,7 @@ class Pair:
     def __init__(self, letter, count=1):
         self.letter = letter
         self.count = count
+        self.parent = None
         self.right_child = None
         self.left_child = None
     def __eq__(self, other):
@@ -85,7 +86,9 @@ def main():
     # my_tree = BinarySearchTree(my_node)
     # my_tree.add(Pair("a", 20))
     test = make_tree()
-    print(test.size(test.root))
+    # print(test.inorder())
+    print(test.remove(Pair("z")))
+    print(test.inorder())
     # print(my_tree.find(my_node, 'z'))
     # print(my_tree.height(my_node))
     # print(my_tree.size(my_node))
