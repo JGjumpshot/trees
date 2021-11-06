@@ -17,6 +17,55 @@ class Pair:
         self.parent = None
         self.right_child = None
         self.left_child = None
+        
+    def is_leaf(self):
+        return not (self.right_child or self.left_child)
+    def has_a_child(self):
+        return self.right_child or self.left_child
+    def has_children(self):
+        return self.right_child and self.left_child
+    def find_successor(self):
+        successor = None
+        if self.right_child:
+            successor = self.right_child.find_min()
+        else:
+            if self.parent:
+                if self.is_left_child():
+                    successor = self.parent
+                else:
+                    self.parent.right_child = None
+                    successor = self.parent.find_successor()
+                    self.parent.right_child = self
+        return successor
+    def find_min(self):
+        current = self
+        while current.left_child:
+            current = current.left_child
+        return current
+    def splice_out(self):
+        if self.is_leaf():
+            if self.is_left_child():
+                self.parent.left_child = None
+            else:
+                self.parent.right_child = None
+        elif self.has_a_child():
+            if self.left_child:
+                if self.is_left_child():
+                    self.parent.left_child = self.left_child
+                else:
+                    self.parent.right_child = self.left_child
+                self.left_child.parent = self.parent
+            else:
+                if self.is_left_child():
+                    self.parent.left_child = self.right_child
+                else:
+                    self.parent.right_child = self.right_child
+                self.right_child.parent = self.parent
+    def is_left_child(self):
+        return self.parent and self.parent.left_child is self
+
+    def is_right_child(self):
+        return self.parent and self.parent.right_child is self
     def __eq__(self, other):
         return self.letter == other.letter
 
@@ -87,7 +136,7 @@ def main():
     # my_tree.add(Pair("a", 20))
     test = make_tree()
     # print(test.inorder())
-    print(test.remove(Pair("z")))
+    print(test.remove(Pair("r")))
     print(test.inorder())
     # print(my_tree.find(my_node, 'z'))
     # print(my_tree.height(my_node))

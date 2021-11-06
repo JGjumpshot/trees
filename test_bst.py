@@ -55,19 +55,19 @@ def test_find_empty():
         bst = BST()
         item = bst.find(Pair('A'))
 
-# def test_remove_root():
-#     bst = make_tree()
-#     bst.remove(Pair('C'))
-#     pre = bst.preorder()
-#     assert pre[0] == Pair('D')
+def test_remove_root():
+    bst = make_tree()
+    bst.remove(Pair('C'))
+    pre = bst.preorder()
+    assert pre[0] == Pair('D')
 
-# def test_remove_internal():
-#     bst = make_tree()
-#     pre = bst.preorder()
-#     i = pre.index(Pair('g'))
-#     bst.remove(Pair('g'))
-#     pre = bst.preorder()
-#     assert pre[i] == Pair('f')
+def test_remove_internal():
+    bst = make_tree()
+    pre = bst.preorder()
+    i = pre.index(Pair('g'))
+    bst.remove(Pair('g'))
+    pre = bst.preorder()
+    assert pre[i] == Pair('f')
 
 def test_remove_leaf():
     bst = make_tree()

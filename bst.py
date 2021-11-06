@@ -25,32 +25,61 @@ class BinarySearchTree:
                 current_node.left_child = self.add_helper(node, current_node.left_child, current_node)
 
         return current_node
-    def remove(self, node):
-        delete_node = self.find(node)
+    def remove(self, key):
+        if self._size > 1:
+            node_to_remove = self.find(key)
+            if node_to_remove:
+                self._remove(node_to_remove)
+                self._size = self._size - 1
+            else:
+                raise KeyError("Error, key not in tree")
+        elif self.size == 1 and self.root.key == key:
+            self.root = None
+            self.size = self.size - 1
+        else:
+            raise KeyError("Error, key not in tree")
 
-        if delete_node is None:
-            return None
-        elif delete_node.left_child is None and delete_node.right_child is None:
-            if delete_node.parent is None:
-                self.root = None
-                return
-            if delete_node == delete_node.parent.left_child:
-                delete_node.parent.left_child = None
-            if delete_node == delete_node.parent.right_child:
-                delete_node.parent.right_child = None
-
-        # if self.size > 1:
-        #     node_to_remove = self._get(key, self.root)
-        #     if node_to_remove:
-        #         self._delete(node_to_remove)
-        #         self.size = self.size - 1
-        #     else:
-        #         raise KeyError("Error, key not in tree")
-        # elif self.size == 1 and self.root.key == key:
-        #     self.root = None
-        #     self.size = self.size - 1
-        # else:
-        #     raise KeyError("Error, key not in tree")
+    def _remove(self, current_node):
+        if current_node.is_leaf():  # removing a leaf
+            if current_node == current_node.parent.left_child:
+                current_node.parent.left_child = None
+            else:
+                current_node.parent.right_child = None
+        elif current_node.has_children():  # removing a node with two children
+            successor = current_node.find_successor()
+            successor.splice_out()
+            current_node.letter = successor.letter
+        else:  # removing a node with one child
+            if current_node.left_child:
+                if current_node.is_left_child():
+                    current_node.left_child.parent = current_node.parent
+                    current_node.parent.left_child = current_node.left_child
+                elif current_node.is_right_child():
+                    current_node.left_child.parent = current_node.parent
+                    current_node.parent.right_child = current_node.left_child
+                else:
+                    current_node.replace_value(
+                        current_node.left_child.key,
+                        current_node.left_child.value,
+                        current_node.left_child.left_child,
+                        current_node.left_child.right_child,
+                    )
+            else:
+                if current_node.is_left_child():
+                    current_node.right_child.parent = current_node.parent
+                    current_node.parent.left_child = current_node.right_child
+                elif current_node.is_right_child():
+                    current_node.right_child.parent = current_node.parent
+                    current_node.parent.right_child = current_node.right_child
+                else:
+                    current_node.replace_value(
+                        current_node.right_child.key,
+                        current_node.right_child.value,
+                        current_node.right_child.left_child,
+                        current_node.right_child.right_child,
+                    )
+    def __delitem__(self, key):
+        self.remove(key)
     def height(self):
         """Height function"""
         return self.height_helper(self.root) + 1
