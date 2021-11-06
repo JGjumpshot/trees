@@ -50,7 +50,7 @@ def make_tree():
     :param: None
     :returns: A binary search tree"""
     my_tree = BinarySearchTree()
-    my_file = open("around-the-world-in-80-days-3.txt")
+    my_file = open("around-the-world-in-80-days-3.txt", encoding="utf-8")
     read_lines = my_file.read()
     for i in punctuation:
         read_lines = read_lines.replace(i, "")
