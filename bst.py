@@ -34,7 +34,7 @@ class BinarySearchTree:
                 return left_depth + 1
             else:
                 return right_depth + 1
-    def size(self, node):
+    def size(self, node=None):
         """Size function"""
         if node is None:
             return 0
