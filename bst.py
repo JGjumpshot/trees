@@ -8,8 +8,6 @@ class BinarySearchTree:
     def __init__(self, root_obj=None):
         self.root = root_obj
         self._size = 0
-        # self.left_child = None
-        # self.right_child = None
 
     def add(self, node):
         """add function"""
