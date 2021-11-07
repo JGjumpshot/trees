@@ -87,11 +87,11 @@ def test_postorder():
     bst = make_tree()
     assert bst.postorder()[27] == Pair('W',13)
 
-# def test_rebalance():
-#     bst = make_tree()
-#     original_height = bst.height()
-#     tree_data = bst.rebalance()
-#     assert not original_height == bst.height()
+def test_rebalance():
+    bst = make_tree()
+    original_height = bst.height()
+    tree_data = bst.rebalance()
+    assert not original_height == bst.height()
 
 def test_code_style():
     from pylint.lint import Run

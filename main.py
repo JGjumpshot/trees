@@ -12,19 +12,27 @@ class Pair:
     '''
 
     def __init__(self, letter, count=1):
+        """Init function"""
         self.letter = letter
         self.count = count
         self.parent = None
         self.right_child = None
         self.left_child = None
-        
+
     def is_leaf(self):
+        """Is leaf function"""
         return not (self.right_child or self.left_child)
+
     def has_a_child(self):
+        """has a child function"""
         return self.right_child or self.left_child
+
     def has_children(self):
+        """has children function"""
         return self.right_child and self.left_child
+
     def find_successor(self):
+        """find successor function"""
         successor = None
         if self.right_child:
             successor = self.right_child.find_min()
@@ -37,12 +45,16 @@ class Pair:
                     successor = self.parent.find_successor()
                     self.parent.right_child = self
         return successor
+
     def find_min(self):
+        """find minimum left child"""
         current = self
         while current.left_child:
             current = current.left_child
         return current
+
     def splice_out(self):
+        """splice node"""
         if self.is_leaf():
             if self.is_left_child():
                 self.parent.left_child = None
@@ -61,11 +73,38 @@ class Pair:
                 else:
                     self.parent.right_child = self.right_child
                 self.right_child.parent = self.parent
+
     def is_left_child(self):
+        """Is left child function"""
         return self.parent and self.parent.left_child is self
 
     def is_right_child(self):
+        """Is right child function"""
         return self.parent and self.parent.right_child is self
+
+    def is_balanced(self):
+        """Is balanced function"""
+        left_height = self.left_child.height() if self.left_child else 0
+        right_height = self.right_child.height() if self.right_child else 0
+        return abs(left_height - right_height < 2)
+
+    def height(self):
+        """Height function"""
+        return self.height_helper(self.parent) + 1
+
+    def height_helper(self, node):
+        """Height function helper"""
+        if node is None:
+            return -1
+        else:
+            left_depth = self.height_helper(node.left_child)
+            right_depth = self.height_helper(node.right_child)
+
+            if left_depth > right_depth:
+                return left_depth + 1
+            else:
+                return right_depth + 1
+
     def __eq__(self, other):
         return self.letter == other.letter
 
@@ -109,43 +148,14 @@ def make_tree():
     for i in read_lines:
         node = Pair(i)
         my_tree.add(node)
-        # print(Pair(ord(i)))
     return my_tree
 
 
 def main():
-    # make_tree()
-    # my_file = open("around-the-world-in-80-days-3.txt")
-    # x = my_file.read()
-    # for i in punctuation:
-    #     x = x.replace(i, "")
-    # for i in whitespace:
-    #     x = x.replace(i, "")
-    # for i in x:
-    #     print(Pair(ord(i)))
-    # myTree.add_node(myNode3)
-    # myTree.add_node(myNode4)
-    # print(make_tree().size)
-    # my_node = Pair('b', 20)
-    # my_node.left_child = Pair('a', 10)
-    # my_node.left_child.left_child = Pair('z', 12)
-    # my_node.right_child = Pair('z', 20)
-    # my_node.right_child.right_child = Pair('e', 20)
-    # my_node.right_child.right_child.right_child = Pair('f', 12)
-    # my_tree = BinarySearchTree(my_node)
-    # my_tree.add(Pair("a", 20))
+    """Main function"""
     test = make_tree()
-    # print(test.inorder())
-    print(test.remove(Pair("r")))
-    print(test.inorder())
-    # print(my_tree.find(my_node, 'z'))
-    # print(my_tree.height(my_node))
-    # print(my_tree.size(my_node))
-    
-    # print(my_tree.in_order(my_node)) ****
-        # print(make_tree())
-    # print(x)
-    # x = x.replace(" ", "")
+    print(test.height())
+
 
 if __name__ == "__main__":
     main()
