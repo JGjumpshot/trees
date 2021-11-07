@@ -1,7 +1,4 @@
 """Binary search tree"""
-# from main import Pair
-
-
 class BinarySearchTree:
     """init function"""
 
@@ -188,7 +185,5 @@ class BinarySearchTree:
             return None
         middle = (len(in_order_list) // 2)
         self.root = in_order_list[middle]
-        # self.root.left_child = self.rebalance_helper(in_order_list[:middle])
-        # self.root.right_child = self.rebalance_helper(in_order_list[middle + 1:])
         return self.root
         
