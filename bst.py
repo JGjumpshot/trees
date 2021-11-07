@@ -181,21 +181,16 @@ class BinarySearchTree:
             self.post_order_helper(node.left_child, lyst)
             self.post_order_helper(node.right_child, lyst)
             lyst.append(node)
-
     def rebalance(self):
-        """rebalance function"""
         in_order_list = self.inorder()
-        pointer = self.root
-        if len(in_order_list) <= 1:
-            return
-        # elif pointer
+        self.root = self.rebalance_helper(in_order_list)
+    def rebalance_helper(self, in_order_list):
+        """rebalance helper function"""
+        if not in_order_list:
+            return None
         middle = (len(in_order_list) // 2)
-        right_side = in_order_list[middle:]
-        left_side = in_order_list[:middle]
-
-        print(len(left_side))
-        print(len(right_side))
-        # if len(in_order_list) == 0:
-        #     return
-        # elif in_order_list[middle]
-        # print(middle)
+        self.root = in_order_list[middle]
+        # self.root.left_child = self.rebalance_helper(in_order_list[:middle])
+        # self.root.right_child = self.rebalance_helper(in_order_list[middle + 1:])
+        return self.root
+        

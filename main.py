@@ -153,8 +153,7 @@ def make_tree():
 
 def main():
     """Main function"""
-    test = make_tree()
-    print(test.height())
+    make_tree()
 
 
 if __name__ == "__main__":
